@@ -1,30 +1,33 @@
 const model= require("../model/model");
 const bcrypt = require("bcryptjs");
 var userdb = model.userInfoDb;
-exports.CreateUser = (req,res)=>{
-    if(!req.body){
-        res.status(400).send({message:"content cannot be empty"})
-        return;
+exports.CreateUser = async (req,res)=>{
+    try {
+        if(!req.body){
+            res.status(400).send({message:"content cannot be empty"})
+            return;
+        }
+        if(req.body.password!=req.body.repassword){
+            res.send("password and repassword aren't matching.");
+            return;
+        }
+        const newuser = new userdb({
+            name:req.body.name,
+            email: req.body.email,
+            adderess : req.body.adderess,
+            contact : req.body.contact,
+            password : req.body.password,
+            repassword : req.body.repassword,
+            geder : req.body.gender
+        })
+
+        await newuser.generatetoken();
+
+        await newuser.save(newuser); 
+        res.status(200).redirect("/login")      
+    } catch (error) {        
+        res.send(error);
     }
-    if(req.body.password!=req.body.repassword){
-        res.send("password and repassword aren't matching.");
-        return;
-    }
-    const newuser = new userdb({
-        name:req.body.name,
-        email: req.body.email,
-        adderess : req.body.adderess,
-        contact : req.body.contact,
-        password : req.body.password,
-        repassword : req.body.repassword,
-        geder : req.body.gender
-    })
-    newuser.save(newuser).then(data=>{
-        res.redirect("/login");
-    }).catch(err=>{
-        console.log(err);
-        res.status(500).send({message:err || "error occured while creating the data"})
-    })
 }
 exports.DeleteUser = (req,res)=>{
     const id = req.params.id;
@@ -89,7 +92,12 @@ exports.login = (req,res)=>{
     const email = req.body.email;
     const password = req.body.password;
     userdb.findOne({email}).then(data=>{
-            const ismatching = bcrypt.compare(password, data.password)
+            const ismatching = bcrypt.compare(password, data.password);
+            data.generatetoken().then(data=>{
+                console.log("");
+            }).catch(err=>{
+                console.log(err);
+            })
             if(!ismatching){
                 res.send("incorrect password");
                 return;

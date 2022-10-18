@@ -103,7 +103,7 @@ form{
 .form-class{
     margin-top: 0.75em;
 }
-.form-class input[type = "text"]{ 
+.form-class input[type = "text"],.form-class input[type = "password"]{ 
     outline: none;
     margin-top: .5em;
     border-radius: 5px;
