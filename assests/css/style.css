@@ -1,0 +1,165 @@
+/* for home page */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#header{
+    background-color: aqua;
+}
+nav .text-center{
+    margin-right: 8em;
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+}
+.account{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+.login button, .signup button{
+    border-radius: 5px;
+    padding: 0.25em 0.5em;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    background-color: #6E0DD0;
+    font-size: 20px;
+    transition: all 0.25s ease;
+}
+.login button:hover, .signup button:hover{
+    border: none;
+    background-color: #9D00FF;
+    cursor: pointer;
+}
+.nav-title{
+    font-size: 30px;
+}
+a{
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#main{
+    margin-top: 70px;
+}
+.user{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 5px;
+    font-size: 20px;
+}
+i{
+    margin-left: 20px;
+}
+table{
+    width: 100%;
+    border-spacing: 0px;
+    margin-top: 30px;
+}
+thead th, tbody td{
+    vertical-align: top;
+    padding: 0.75em;
+    border-top: 1px solid black;
+    text-align: center ;
+}
+thead{
+    background-color: rgb(96, 44, 96);
+}
+tbody tr:hover{
+    background-color: rgb(8, 217, 154);
+}
+
+
+.form-title{
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+}
+.form-title h2{
+    font-size: 50px;
+    color: rgb(69, 182, 192);
+}
+.all-user span{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 94, 255);
+
+}
+form{
+    margin-top: 3em;
+}
+.form{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+.form-class{
+    margin-top: 0.75em;
+}
+.form-class input[type = "text"]{ 
+    outline: none;
+    margin-top: .5em;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+}
+.radio{
+    display: inline-block;
+    margin: 2em 2em;
+}
+.radio input[type="radio"]{
+    position: absolute;
+    opacity: 0;
+}
+.radio input[type="radio"]+.radio-label:before{
+    content: "";
+    background: rgb(239, 239, 239);
+    border-radius: 100%;
+    border: 1px solid #b4b4b4;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    top: -0em;
+    vertical-align: top;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 0.5em;
+    transition: all 250ms ease;
+}
+.radio input[type="radio"]:checked+.radio-label:before{
+    box-shadow: inset 0 0 0 4px #e9ecef;
+    background-color: aqua;
+}
+.radio input[type="radio"]:focus +.radio-label:before{
+    outline: none;
+    border-color: aqua;
+}
+.radio input[type="radio"]:disabled +.radio-label:before{
+    box-shadow: inset 0 0 0 4px #e9ecef;
+    border-color: #b4b4b4;
+    background-color: #b4b4b4;
+}
+#update_user #btn, #add_user #btn,#Signup #btn{
+    width: 100%;
+    height: 2em;
+    margin-bottom: 40px;
+}
+
+
+/*  */
+/*  */
+/* for login page */
+
+
+
+
+
+

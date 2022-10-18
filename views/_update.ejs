@@ -1,0 +1,67 @@
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+<!-- include update user form -->
+    <!-- form -->
+    <div class="form-title">
+        <h2>Fill the form to update user</h2>
+    </div>
+    <div class="form">
+        <div class="all-user">
+        <span><a href="/"> All User</a></span>
+        </div>
+
+        <form action="/" method="POST" id="update_user">
+            <div id="name" class="form-class">
+                <label for="name">Name</label>
+                <input type="hidden" name="id" value="<%= user._id%>">
+                <input type="text" name="name" id="name" value="<%= user.name %>">
+            </div>
+            <div id="email" class="form-class">            
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" value="<%= user.email %>">
+            </div>
+            <div id="adderess" class="form-class">
+                <label for="adderess">Adderess</label>
+                <input type="text" name="adderess" id="adderess" value="<%= user.adderess %>">
+            </div>
+            <div id="gender" class="form-class">
+                <label for="gender">Gender</label>
+                <div class="radio">
+                    <input type="radio" name="gender" id="radio-2" value="Male"<%= user.gender == "Male"?'checked' : "" %>>
+                    <label for="radio-2" class="radio-label">Male</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="gender" id="radio-3" value="Female"<%= user.gender == "Female"?'checked' : "" %>>
+                    <label for="radio-3" class="radio-label">Female</label>
+                </div>
+            </div>
+            <div id="status" class="form-class">
+                <label for="status">status</label>
+                <div class="radio">
+                    <input type="radio" name="status" id="radio-4" value="Active"<%= user.status == "Active"?'checked' : "" %>>
+                    <label for="radio-4" class="radio-label">Active</label>
+                </div>
+                <div class="radio"> 
+                    <input type="radio" name="status" id="radio-5" value="Inactive"<%= user.status == "Inactive"?'checked' : "" %>>
+                    <label for="radio-5" class="radio-label">Inactive</label>
+                </div>
+            </div>
+            <div id="submit">
+                <button type="submit" class="form-class" id="btn">Save</button>
+            </div>
+        
+        </form>
+    </div>
+
+
+
+    <!-- /form -->
+<!-- /include update user form -->
+
+
+<!-- include header -->
+<%- include('include/_footer') %>
+<!-- /include header -->
+

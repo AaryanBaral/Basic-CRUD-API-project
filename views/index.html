@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e2a2396dd1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assests/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+
+    <div id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-title">User Management System</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- /header -->
+
+
+
+
+    <!-- main -->
+    <div class="container" id="main">
+        <div class="main-box">
+            <div class="adduser">
+                <a href="/add_user"><span class="user">Add User <i class="fa-solid fa-user-plus"></i></span></a>
+            </div>
+            <form action="/" method="POST">
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>SN no</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Adderess</th>
+                                <th>Gender</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%= i+1 %></td>
+                                <td><%= user[i].name %></td>
+                                <td><%= user[i].email %></td>
+                                <td><%= user[i].adderess %></td>
+                                <td><%= user[i].gender %></td>
+                                <td><%= user[i].status %></td>
+                                <td><a href="/update_user"><i class="fa-solid fa-pen-to-square"></i></a> 
+                                    <a href="/delete_user"><i class="fa-solid fa-trash"></i></a></td>                                
+                            </tr>                        
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- /main -->
+    
+    <
+
+
+
+
+</body>
+</html>

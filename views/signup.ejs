@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e2a2396dd1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-title">User Management System</a>
+                </div>
+                <div class="account">
+                    <div class="login">
+                        <a href="/login"><button>Login</button></a>
+                    </div>
+                    <div class="signup">
+                        <a href="/signup"><button>Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+       <!-- form -->
+
+
+    <div class="form">
+        <form action="/api/signup" method="POST" id="Signup">
+            <div id="name" class="form-class">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div id="email" class="form-class">            
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div id="adderess" class="form-class">
+                <label for="adderess">Adderess</label>
+                <input type="text" name="adderess" id="adderess">
+            </div>
+            <div id="contact" class="form-class">
+                <label for="phone">Contact</label>
+                <input type="text" name="contact" id="contact">
+            </div>
+            <div id="password" class="form-class">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password">
+            </div>
+            <div id="Repassword" class="form-class">
+                <label for="repassword">Repassword</label>
+                <input type="text" name="repassword" id="repassword">
+            </div>
+            <div id="gender" class="form-class">
+                <label for="gender">Gender</label>
+                <div class="radio">
+                    <input type="radio" name="gender" id="radio-2" value="Male">
+                    <label for="radio-2" class="radio-label">Male</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="gender" id="radio-3" value="Female">
+                    <label for="radio-3" class="radio-label">Female</label>
+                </div>
+            </div>
+            <div id="submit">
+                <button type="submit" class="form-class" id="btn">Save</button>
+            </div>
+        
+        </form>
+    </div>    
+<!-- /form -->
+
+<%- include('include/_footer') %>
