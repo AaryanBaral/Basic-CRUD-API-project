@@ -1,4 +1,5 @@
 const model= require("../model/model");
+const bcrypt = require("bcryptjs");
 var userdb = model.userInfoDb;
 exports.CreateUser = (req,res)=>{
     if(!req.body){
@@ -87,8 +88,9 @@ exports.FindUser = (req,res)=>{
 exports.login = (req,res)=>{
     const email = req.body.email;
     const password = req.body.password;
-        userdb.findOne({email:email}).then(data=>{
-            if(data.password!=password){
+    userdb.findOne({email}).then(data=>{
+            const ismatching = bcrypt.compare(password, data.password)
+            if(!ismatching){
                 res.send("incorrect password");
                 return;
             }

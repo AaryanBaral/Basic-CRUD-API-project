@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 var ALLSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -40,6 +41,13 @@ var UserSchema = new mongoose.Schema({
     password:String,
     repassword:String,
     gender:String 
+})
+UserSchema.pre("save", async function(next){
+    if(this.isModified("password")){
+        this.password = await bcrypt.hash(this.password,8);
+        this.repassword = undefined;
+    }
+    next();
 })
 
 
