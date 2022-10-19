@@ -1,7 +1,7 @@
 const model= require("../model/model");
 const bcrypt = require("bcryptjs");
 var userdb = model.userInfoDb;
-exports.CreateUser = async (req,res)=>{
+exports.CreateUser =(req,res)=>{
     try {
         if(!req.body){
             res.status(400).send({message:"content cannot be empty"})
@@ -21,10 +21,20 @@ exports.CreateUser = async (req,res)=>{
             geder : req.body.gender
         })
 
-        await newuser.generatetoken();
+        newuser.generatetoken().then(token=>{
+            res.cookie("jwt",token,{
+                expires:new Date(Date.now()+300000),
+                httpOnly:true
+            })
+        }).catch(err =>{
+            res.send(err);
+        })
 
-        await newuser.save(newuser); 
-        res.status(200).redirect("/login")      
+        newuser.save(newuser).then(data =>{
+            res.status(200).redirect("/login") 
+        }).catch(err=>{
+            res.send(err)
+        })
     } catch (error) {        
         res.send(error);
     }
