@@ -103,8 +103,12 @@ exports.login = (req,res)=>{
     const password = req.body.password;
     userdb.findOne({email}).then(data=>{
             const ismatching = bcrypt.compare(password, data.password);
-            data.generatetoken().then(data=>{
-                console.log("");
+            data.generatetoken().then(token=>{
+                res.cookie("jwt",token,{
+                    expires:new Date(Date.now()+300000),
+                    httpOnly:true
+                    // secure:true {use this for deployement of product for secure connection.}
+                })
             }).catch(err=>{
                 console.log(err);
             })
